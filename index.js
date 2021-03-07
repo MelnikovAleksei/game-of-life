@@ -71,14 +71,10 @@ function createNextGeneration(grid) {
                         continue;
                     };
 
-                    const x_cell = col + i;
-                    const y_cell = row + j;
+                    const x_cell = (col + i + cols) % cols;
+                    const y_cell = (row + j + rows) % rows;
 
-                    if (x_cell >= 0 && y_cell >= 0 && x_cell < cols && y_cell < rows) {
-                        const currentNeighbor = grid[col + i][row + j];
-                    
-                        numNeighbors += currentNeighbor;
-                    };
+                    numNeighbors += grid[x_cell][y_cell];
                 };
             };
 
